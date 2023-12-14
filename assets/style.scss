@@ -29,7 +29,7 @@ header{
 
     .intro{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         border: 3px solid black;
         margin: 25px;
         padding: 10px;
@@ -38,8 +38,8 @@ header{
 
         h1{
             font-size: 20px;
-            font-family: 'Fraunces';
-            color: rgb(224, 130, 120);
+            font-family: 'Barlow', sans-serif;
+            color: rgb(213, 155, 152);
             letter-spacing: 4px;
             text-transform: uppercase;
             text-decoration: underline;
@@ -52,7 +52,7 @@ header{
         }
 
         p{
-            font-family: 'Barlow';
+            font-family: 'Fraunces';
             font-size: 12px;
             letter-spacing: 1px;
             text-align: justify;
@@ -69,6 +69,7 @@ header{
             font-style: italic;
             text-align: right;
             margin: 0.5%;
+            margin-top: 100px;
 
             @include media-minwidth ($desktop){
                 font-size: 16px;
@@ -76,10 +77,10 @@ header{
         }
     }
 
-    .imgdebut{
+    .img_logo{
         width: 15%;
         height: 15%;
-        border-radius: 30%;
+        border-radius: 15%;
         border: 3px solid rgb(0, 0, 0);
         margin: 25px;
     }
@@ -91,34 +92,100 @@ header{
 }
 
 .box1,
-.box2{
+.box2 {
     display: flex;
     flex-direction: row;
-    border: 3px solid yellow;
     margin: 2%;
     text-align: left;
+     height: 65vh;
+   
 
-    @include media-maxwidth ($mobile){
+    @include media-maxwidth($mobile) {
         flex-direction: column;
         max-width: 100%;
     }
 
-    .card{
+    .card {
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
         width: 100%;
+        height: 100%;
         margin: 0.5%;
-        border: 3px solid black;
+        border: 0px solid black;
         overflow: auto;
         border-radius: 20px;
-        background: url("assets/back");
-        &__img{
-           width: 100%;
-           height: 50%;
+        background: url("aaaa.webp") center/cover no-repeat; 
+        position: relative;
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        
+        
+
+        &__img {
+            width: 100%;
+            height: 40%; 
+            max-height: 250px;
+            border-radius: 20px 20px 0 0;
+            object-fit: cover;  
+            align-items: center;
+            justify-content: center;
+        
+        }
+        &__name {
+            padding: 5px;
+        }
+        &__age {
+            padding: 5px;
+        }
+        &__pays {
+            padding: 5px;
+        }
+        &__club {
+            padding: 5px;
+        }
+        &__position {
+            padding: 5px;
+        }
+        &__stat {
+            padding: 5px;
         }
 
-        @include media-maxwidth ($mobile){
+        @include media-maxwidth($mobile) {
             width: auto;
             height: auto;
-            margin:2%;
+            margin: 2%;
+            
+            &__img {
+                height: 100px; 
+            }
         }
     }
+}
+
+.card {
+    
+    &__video {
+      position: relative;
+  
+      .youtube-icon {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: filter 0.3s ease; 
+      }
+    }
+
+.box1.card:hover {
+    transform: scale(0.9);
+   }
+   .box2.card:hover {
+    transform: scale(0.9);
+   }
+
 }
